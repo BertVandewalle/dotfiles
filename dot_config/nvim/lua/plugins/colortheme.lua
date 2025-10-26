@@ -1,17 +1,30 @@
+-- return{
+--     'shaunsingh/nord.nvim',
+--     lazy = false,
+--     priority = 1000,
+--     config = function()
+--         -- Example config in lua
+--         vim.g.nord_contrast = true
+--         vim.g.nord_borders = false
+--         vim.g.nord_disable_background = false
+--         vim.g.nord_italic = false
+--         vim.g.nord_uniform_diff_background = true
+--         vim.g.nord_bold = false
+--
+--         -- Load the colorscheme
+--         require('nord').set()
+--     end
+-- }
 return{
-    'shaunsingh/nord.nvim',
+    "gmr458/vscode_modern_theme.nvim",
     lazy = false,
     priority = 1000,
     config = function()
-        -- Example config in lua
-        vim.g.nord_contrast = true
-        vim.g.nord_borders = false
-        vim.g.nord_disable_background = false
-        vim.g.nord_italic = false
-        vim.g.nord_uniform_diff_background = true
-        vim.g.nord_bold = false
-
-        -- Load the colorscheme
-        require('nord').set()
-    end
+        require("vscode_modern").setup({
+            cursorline = true,
+            transparent_background = false,
+            nvim_tree_darker = true,
+        })
+        vim.cmd.colorscheme("vscode_modern")
+    end,
 }

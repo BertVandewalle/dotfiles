@@ -36,5 +36,11 @@ else
 		require("plugins.indent-blankline"),
 		require("plugins.misc"),
 		require("plugins.debug"),
+		require("plugins.blink-cmp"),
+		require("plugins.codecompanion"),
+		require("plugins.img-clip"),
+		require("plugins.markview"),
+		require("plugins.mini-diff"),
+		require("plugins.copilot"),
 	})
 end
