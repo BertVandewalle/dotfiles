@@ -11,7 +11,6 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 		error("Error cloning lazy.nvim:\n" .. out)
 	end
 end
-
 local rtp = vim.opt.rtp
 rtp:prepend(lazypath)
 
@@ -29,7 +28,6 @@ else
 		require("plugins.treesitter"),
 		require("plugins.telescope"),
 		require("plugins.lsp"),
-		require("plugins.autocompletion"),
 		require("plugins.none-ls"),
 		require("plugins.gitsigns"),
 		require("plugins.alpha"),
@@ -37,10 +35,11 @@ else
 		require("plugins.misc"),
 		require("plugins.debug"),
 		require("plugins.blink-cmp"),
+		-- require("plugins.blink"),
+		require("plugins.copilot"),
 		require("plugins.codecompanion"),
 		require("plugins.img-clip"),
 		require("plugins.markview"),
 		require("plugins.mini-diff"),
-		require("plugins.copilot"),
 	})
 end
