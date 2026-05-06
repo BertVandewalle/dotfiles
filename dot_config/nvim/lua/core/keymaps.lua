@@ -93,8 +93,8 @@ vim.keymap.set("v", "p", '"_dP', opts)
 vim.keymap.set("n", "<leader>j", "*``cgn", opts)
 
 -- Explicitly yank to system clipboard (highlighted and entire row)
-vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
-vim.keymap.set("n", "<leader>Y", [["+Y]])
+vim.keymap.set({ "n", "v" }, "<leader>y", [[+"y]])
+vim.keymap.set("n", "<leader>Y", [[+"Y]])
 
 -- Toggle diagnostics
 local diagnostics_active = true
@@ -124,3 +124,19 @@ vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open diagn
 -- Save and load session
 vim.keymap.set("n", "<leader>ss", ":mksession! .session.vim<CR>", { noremap = true, silent = false })
 vim.keymap.set("n", "<leader>sl", ":source .session.vim<CR>", { noremap = true, silent = false })
+
+-- If running inside vscode via vscode-neovim, map some leader keys to VS Code commands
+if vim.g.vscode then
+  local function vsc(cmd)
+    return function()
+      vim.fn['VSCodeNotify'](cmd)
+    end
+  end
+
+  -- Common mappings to call VS Code features from Neovim leader
+  vim.keymap.set('n', '<leader>ff', vsc('workbench.action.quickOpen'), { noremap = true, silent = true }) -- quick open
+  vim.keymap.set('n', '<leader>fg', vsc('workbench.action.findInFiles'), { noremap = true, silent = true }) -- find in files
+  vim.keymap.set('n', '<leader>ps', vsc('workbench.action.showCommands'), { noremap = true, silent = true }) -- command palette
+  vim.keymap.set('n', '<leader>e', vsc('workbench.view.explorer'), { noremap = true, silent = true }) -- explorer
+  vim.keymap.set('n', '<leader>tt', vsc('workbench.action.terminal.toggleTerminal'), { noremap = true, silent = true }) -- toggle terminal
+  vim.keymap.set('n', '<leader>bn
