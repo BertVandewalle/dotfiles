@@ -139,4 +139,11 @@ if vim.g.vscode then
   vim.keymap.set('n', '<leader>ps', vsc('workbench.action.showCommands'), { noremap = true, silent = true }) -- command palette
   vim.keymap.set('n', '<leader>e', vsc('workbench.view.explorer'), { noremap = true, silent = true }) -- explorer
   vim.keymap.set('n', '<leader>tt', vsc('workbench.action.terminal.toggleTerminal'), { noremap = true, silent = true }) -- toggle terminal
-  vim.keymap.set('n', '<leader>bn
+  vim.keymap.set('n', '<leader>bn', vsc('workbench.action.nextEditor'), { noremap = true, silent = true }) -- next editor
+  vim.keymap.set('n', '<leader>bp', vsc('workbench.action.previousEditor'), { noremap = true, silent = true }) -- previous editor
+
+  -- Replace local mappings for Ctrl-S and Ctrl-Q to use VS Code commands when inside VS Code
+  vim.keymap.set('n', '<C-s>', vsc('workbench.action.files.save'), { noremap = true, silent = true })
+  vim.keymap.set('i', '<C-s>', vsc('workbench.action.files.save'), { noremap = true, silent = true })
+  vim.keymap.set('n', '<C-q>', vsc('workbench.action.closeActiveEditor'), { noremap = true, silent = true })
+end
